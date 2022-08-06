@@ -1,0 +1,71 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: 0px;
+
+}
+body{
+    background-color: blue;
+    padding: 20px 10px;
+
+}
+.container{
+    width: 80%;
+    margin: auto;
+    padding:15px;
+}
+.nav{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:5px 10px;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+h2{
+    color:#000;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+h2 i{
+    color: #fff;
+}
+#inputField{
+    outline:none;
+    width:auto;
+}
+#btn{
+    cursor: pointer;
+    outline:none;
+}
+.todoList{
+    max-width: 500px;
+    margin: 0px auto;
+    
+}
+.todoItem{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    background-color: #fff;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    padding: 10px;
+    box-sizing: border-box;
+    
+}
+.todoItem i{
+    margin: 0px 5px;
+ 
+}
+
+@media screen and (max-width:700px){
+    .nav{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 50px;
+
+    }
+}
