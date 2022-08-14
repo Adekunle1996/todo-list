@@ -42,7 +42,7 @@ h2 i{
 .todoList{
     max-width: 500px;
     margin: 0px auto;
-    
+    overflow: hidden;
 }
 .todoItem{
     width:100%;
@@ -54,10 +54,20 @@ h2 i{
     padding: 10px;
     box-sizing: border-box;
     
+    
 }
-.todoItem i{
-    margin: 0px 5px;
+
+.btn{
+    margin: 0px 3px;
  
+}
+.todoInput{
+    flex:1 1 0%;
+    appearance: none;
+    border: none;
+    color: none;
+    border: none;
+    outline: none;
 }
 
 @media screen and (max-width:700px){

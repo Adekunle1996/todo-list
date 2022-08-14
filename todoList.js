@@ -1,30 +1,56 @@
-let inputField=document.getElementById("inputField");
+
+ let inputField=document.getElementById("inputField");
 let todoContainer=document.getElementById("todoContainer");
 let btn=document.getElementById("btn");
-console.log(btn);
 
+ 
+inputField.addEventListener("keydown", function(event){
+    if(event.key==="Enter"){
+        let inputValue=inputField.value;
+        if(!inputValue){
+            alert("please fill in a task");
+        }else{
+            let parentEle=document.createElement("div"); 
+            let inputEle=document.createElement("input");
+            let childEle=document.createElement("div");
+            let btnEdit=document.createElement("button");
+            let btnDel=document.createElement("button");
+            parentEle.classList.add("todoItem");
+            inputEle.setAttribute("readonly", "readonly");
+            inputEle.classList.add("todoInput");
+            inputEle.type="text";
+            inputEle.value=inputValue;
+            parentEle.appendChild(inputEle);
+            btnEdit.innerHTML="Edit";
+            btnEdit.classList.add("btn");
+            childEle.appendChild(btnEdit);
+            btnDel.innerHTML="Delete";
+            btnDel.classList.add("btn");
+            childEle.appendChild(btnDel);
+            parentEle.appendChild(childEle);
+            todoContainer.appendChild(parentEle);
+            inputField.value="";
 
-btn.addEventListener("click", function(){
-    let parentDiv=document.createElement("div");
-    let  childDiv=document.createElement("div");
-    let checkIcon=document.createElement("i");
-    let trashIcon=document.createElement("i");
-    parentDiv.classList.add("todoItem");
-    parentDiv.innerHTML='<div>'+inputField.value+'</div>';
-    console.log(parentDiv);
-    checkIcon.className="fas fa-check-square";
-    checkIcon.addEventListener("click", ()=>{
-     checkIcon.style.color="green";
-    });
-    trashIcon.className="fas fa-trash";
-    trashIcon.style.color="darkgray";
-    trashIcon.addEventListener("click", ()=>{
-    parentDiv.remove();
-    });
-    childDiv.appendChild(checkIcon);
-    childDiv.appendChild(trashIcon);
-    parentDiv.appendChild(childDiv);
-    todoContainer.appendChild(parentDiv);
-    inputField.value="";
-});
+            
+            btnEdit.addEventListener("click",()=>{
+                if(btnEdit.innerHTML==="Edit"){
+                    inputEle.removeAttribute("readonly");
+                    inputEle.focus();
+                    btnEdit.innerHTML="Save";
+
+                }else{
+                    inputEle.setAttribute("readonly", "readonly");
+                    btnEdit.innerHTML="Edit";
+                }
+            } )
+            btnDel.addEventListener("click", ()=>{
+                parentEle.remove();
+            })
+
+        }
+
+    }
+   
+})
+
 
